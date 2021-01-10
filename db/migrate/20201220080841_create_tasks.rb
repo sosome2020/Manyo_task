@@ -3,8 +3,9 @@ class CreateTasks < ActiveRecord::Migration[6.0]
     create_table :tasks do |t|
       t.string :task_name
       t.text :task_detail
-
+      t.datetime :expiration_date
       t.timestamps
+
     end
   end
 end
