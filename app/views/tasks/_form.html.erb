@@ -26,6 +26,16 @@
     <%= form.text_area :expiration_date %>
   </div>
 
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status,['Started','In-progress','Completed']%>
+  </div>
+
+  <div>
+    <%= form.label :priority%>
+    <%= form.select :priority, ['Low','Medium','High' ]%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

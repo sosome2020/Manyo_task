@@ -5,7 +5,8 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.text :task_detail
       t.datetime :expiration_date
       t.timestamps
-
+      t.string :status
+      t.integer :priority
     end
   end
 end
