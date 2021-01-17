@@ -22,7 +22,13 @@
 
 <p>
   <strong>Priority:</strong>
-  <%= @task.priority %>
+  <% if @task.priority==1 %>
+      <td>High</td>
+  <% elsif @task.priority==2%>
+      <td>Medium</td>
+  <% elsif @task.priority==3 %>
+      <td>Low</td>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
