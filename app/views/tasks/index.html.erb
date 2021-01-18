@@ -36,15 +36,14 @@
         <% elsif task.priority==3 %>
             <td>Low</td>
         <% end %>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td>
+        <button type="button" class="btn btn-warning btn-xs"><%= link_to 'Show', task %></button>
+        <button type="button" class="btn btn-primary btn-xs"><%= link_to 'Edit', edit_task_path(task) %></button>
+        <button type="button" class="btn btn-warning btn-xs"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>
   <%= paginate @tasks %>

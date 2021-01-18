@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="first">
+        <button type="button" class="btn btn-warning btn-xs"><%= link_to "Task", tasks_path %></button>
+      <button type="button" class="btn btn-primary btn-xs"><%= link_to "New Task", new_task_path %></button>
+      </div>
+</header>
     <%= yield %>
+    <footer class="footer">
+    <p>Copyright © 2020 task management system inc, All RIGHTS RESERVED.</p>
+  </footer>
   </body>
 </html>
