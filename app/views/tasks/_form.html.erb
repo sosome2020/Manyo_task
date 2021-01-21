@@ -21,6 +21,21 @@
     <%= form.text_area :task_detail %>
   </div>
 
+  <div class="field">
+    <%= form.label :expiration_date %>
+    <%= form.date_field :expiration_date %>
+  </div>
+
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status,['Started','In-progress','Completed']%>
+  </div>
+
+  <div>
+    <%= form.label :priority%>
+    <%= form.select :priority, [['High','1'], ['Medium','2'], ['Low', '3']]%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
