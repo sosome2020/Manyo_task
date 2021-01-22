@@ -1,9 +1,9 @@
-module ApplicationHelper
-  def choose_new_or_edit
-    if action_name == 'edit'
-      admin_user_path
-    else
-      admin_users_path
-    end
+module SessionsHelper
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def logged_in?
+    current_user.present?
   end
 end

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-before_action set_task,only: [:show,:edit,:update,:destroy]
+before_action :set_task,only: [:show,:edit,:update,:destroy]
 before_action :current_user
 before_action :authenticate_user
 before_action :logged_in?
@@ -88,6 +88,6 @@ def authenticate_user
 end
 
 def task_params
-  params.require(:task).permit(:task_name, :ctask_detail, :id,:expiration_date, :status, :priority)
+  params.require(:task).permit(:task_name, :task_detail, :id,:expiration_date, :status, :priority)
 end
 end
