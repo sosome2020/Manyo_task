@@ -95,7 +95,7 @@
   fill_in "email", with: "test@example.com"
   fill_in "password", with: "test12"
   fill_in "password_confirmation", with: "test12"
-  expect{ click_on "Submit" }.to change(User, :count).by(1)
+  expect{ click_on "Create User" }.to change(User, :count).by(1)
   end
   end
 
