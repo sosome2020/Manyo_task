@@ -1,8 +1,22 @@
 require 'rails_helper'
 RSpec.describe 'Task management function', type: :system do
+  before do
+FactoryBot.create(:user, name: 'test', email: 'test@gmail.com',password: 'password', password_confirmation: 'password')
+visit new_session_path
+fill_in 'Email', with: 'test@gmail.com'
+fill_in 'Password', with: 'password'
+click_button 'Log in'
+@user = User.first
+end
+
+
   describe 'New creation function' do
     context 'When creating a new task' do
       it 'The created task is displayed' do
+        visit new_session_path
+        fill_in 'Email', with: 'test@gmail.com'
+        fill_in 'Password', with: 'password'
+        click_button 'Log in'
         visit new_task_path
         fill_in 'Task name', with: "practice"
         fill_in 'Task detail', with: "manyo task"
@@ -17,6 +31,10 @@ RSpec.describe 'Task management function', type: :system do
   describe 'List display function' do
     context 'When transitioning to the list screen' do
       it 'The created task list is displayed' do
+        visit new_session_path
+        fill_in 'Email', with: 'test@gmail.com'
+        fill_in 'Password', with: 'password'
+        click_button 'Log in'
         visit new_task_path
         fill_in 'Task name', with: "practice"
         fill_in 'Task detail', with: "manyo task"
@@ -33,6 +51,10 @@ RSpec.describe 'Task management function', type: :system do
   describe 'Detailed display function' do
      context 'When transitioned to any task details screen' do
        it 'The content of the relevant task is displayed' do
+         visit new_session_path
+         fill_in 'Email', with: 'test@gmail.com'
+         fill_in 'Password', with: 'password'
+         click_button 'Log in'
          visit new_task_path
          fill_in 'Task name', with: "practice"
          fill_in 'Task detail', with: "manyo task"
@@ -47,6 +69,10 @@ RSpec.describe 'Task management function', type: :system do
   end
     context 'When tasks are arranged in descending order of creation date and time' do
       it 'New task is displayed at the top' do
+        visit new_session_path
+        fill_in 'Email', with: 'test@gmail.com'
+        fill_in 'Password', with: 'password'
+        click_button 'Log in'
         visit tasks_path
         assert Task.all.order(created_at: "DESC")
       end
@@ -55,6 +81,10 @@ RSpec.describe 'Task management function', type: :system do
 
         context 'When you search by title' do
           it "Filter by tasks that include search keywords" do
+            visit new_session_path
+            fill_in 'Email', with: 'test@gmail.com'
+            fill_in 'Password', with: 'password'
+            click_button 'Log in'
             visit new_task_path
             fill_in 'Task name', with: "practice"
             fill_in 'Task detail', with: "manyo task"
@@ -70,6 +100,10 @@ RSpec.describe 'Task management function', type: :system do
         end
         context 'When you search by status' do
           it "Tasks that exactly match the status are narrowed down" do
+            visit new_session_path
+            fill_in 'Email', with: 'test@gmail.com'
+            fill_in 'Password', with: 'password'
+            click_button 'Log in'
             visit new_task_path
             fill_in 'Task name', with: "practice"
             fill_in 'Task detail', with: "manyo task"
@@ -85,6 +119,10 @@ RSpec.describe 'Task management function', type: :system do
         end
         context 'When you search by title and status' do
           it "Tasks that include the search keyword in the title and exactly match the status are narrowed down" do
+            visit new_session_path
+            fill_in 'Email', with: 'test@gmail.com'
+            fill_in 'Password', with: 'password'
+            click_button 'Log in'
             visit new_task_path
             fill_in 'Task name', with: "practice"
             fill_in 'Task detail', with: "manyo task"
