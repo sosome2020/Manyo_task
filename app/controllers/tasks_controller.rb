@@ -13,6 +13,7 @@ PER=3
     @q=Task.ransack(params[:q])
     @q = current_user.tasks.includes(:user).ransack(params[:q])
     @tasks = @q.result(distinct: true).page(params[:page]).per(PER)
+    @labels =Label.all
   end
 
   def show

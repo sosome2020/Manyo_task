@@ -85,6 +85,6 @@ class LabelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def label_params
-      params.require(:label).permit(:name)
+      params.require(:label).permit(:name,:id)
     end
 end
