@@ -9,6 +9,26 @@
   <%= f.select :labels_id_eq_any, options_from_collection_for_select(current_user.labels.all,:id, :name), :prompt => "Select Labels", :id => 'label_ids' %>
   <%= f.submit "search" %>
 <% end %>
+
+<h1>Labels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @label.each do |label| %>
+      <tr>
+        <td><%= label.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <h1>Tasks</h1>
 
 <table>
