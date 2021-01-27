@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_124604) do
   create_table "tasks", force: :cascade do |t|
     t.string "task_name", null: false
     t.text "task_detail", null: false
-    t.datetime "expiration_date"
+    t.datetime "expiration_date", default: "2021-01-27 00:00:00"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"

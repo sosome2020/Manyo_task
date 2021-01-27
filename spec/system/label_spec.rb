@@ -44,8 +44,8 @@ it 'The creates task with label' do
   fill_in 'Expiration date', with: '2022-08-07'
   select 'Completed'
   select 'High'
-  select 'Test1'
-  select 'Test2'
+  page.has_field?('Test1', checked: true)
+  page.has_field?('Test2', checked: true)
   click_button 'Create Task'
   expect(page).to have_content 'Task was successfully created.'
 end
