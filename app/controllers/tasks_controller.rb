@@ -13,6 +13,7 @@ PER=3
     @q=Task.ransack(params[:q])
     @q = current_user.tasks.includes(:user).ransack(params[:q])
     @tasks = @q.result(distinct: true).page(params[:page]).per(PER)
+    @labels =Label.all
   end
 
   def show
@@ -88,6 +89,6 @@ def authenticate_user
 end
 
 def task_params
-  params.require(:task).permit(:task_name, :task_detail, :id,:expiration_date, :status, :priority)
+  params.require(:task).permit(:task_name, :task_detail, :id,:expiration_date, :status, :priority, { label_ids: [] },:label_id)
 end
 end

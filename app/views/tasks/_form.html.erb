@@ -36,7 +36,20 @@
     <%= form.select :priority, [['High','1'], ['Medium','2'], ['Low', '3']]%>
   </div>
 
-  <div class="actions">
+  <div>
+     <% if logged_in? %>
+       <% Label.all.each do |label| %>
+         <% if current_user.id == label.user_id %>
+           <div class="row ml-4">
+             <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
+             <%= form.label:name, label.name %>
+           </div>
+         <% end %>
+       <% end %>
+     <% end %>
+     <div>
+
+<div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
